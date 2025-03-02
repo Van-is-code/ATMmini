@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Transaction Success</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #1B5E20, #2E7D32);
+            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: none;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            animation: slideUp 0.8s ease-in-out;
+        }
+        .btn-custom {
+            background: #1B5E20;
+            border: none;
+            color: white;
+            font-weight: bold;
+            padding: 12px 20px;
+            transition: all 0.3s ease-in-out;
+        }
+        .btn-custom:hover {
+            background: #145A32;
+            transform: scale(1.05);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .success-icon {
+            font-size: 60px;
+            color: #4CAF50;
+            animation: bounce 1s infinite alternate;
+        }
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+        .details {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="card text-white">
+        <h2 class="fw-bold">✅ Transaction Successful!</h2>
+        <hr class="bg-light">
+        <i class="fas fa-check-circle success-icon"></i>
+        <p class="details"><strong>Account Number:</strong> <span th:text="${accountNumber}"></span></p>
+        <p class="details"><strong>Amount:</strong> <span th:text="${amount}"></span> USD</p>
+        <p class="details"><strong>Type:</strong> <span th:text="${type}"></span></p>
+        <a href="/index" class="btn btn-custom mt-3"><i class="fas fa-home"></i> Home</a>
+    </div>
+</div>
+</body>
+</html>
